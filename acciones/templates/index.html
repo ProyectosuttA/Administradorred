@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>ADMINISTRADOR DE LA RED</title>
+	<link rel="stylesheet" href="{% static 'estilos.css'%} ">
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+		<div class="btn-menu">
+			<label for="btn-menu">☰</label>
+		</div>
+			<div class="logo">
+				<h1>PARA COMENZAR</h1>
+			</div>
+			<nav class="menu">
+				<a href="#">Registro</a>
+				<a href="#">Ingresar</a>
+				<a href="#">Salir</a>
+				<a href="/conexion/">Conexión al dispositivo</a>
+				<a href="/acciones/">Acciones</a>
+			</nav>
+		</div>
+	</header>
+	<div class="capa"></div>
+<!--	--------------->
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+	<div class="cont-menu">
+		<nav>
+			<a href="/mapeo/">MAPEO DE RED</a>
+			<a href="/red/">ESTADO DE LA RED</a>
+			<a href="/ruta/">RUTA DE PAQUETES</a>
+			<a href="/imagen/">MAPA DE LA RED</a>
+		</nav>
+		<label for="btn-menu">✖️</label>
+	</div>
+</div>
+
+{%block content %}
+{%endblock %}
+
+</body>
+</html>

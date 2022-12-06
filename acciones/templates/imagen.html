@@ -1,0 +1,42 @@
+{%extends 'index.html'%}
+{% load static %}
+
+
+{%block content %}
+<html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>MAPEO DE LA RED</title>
+      <link rel="stylesheet" href="{% static 'estilos1.css'%} ">
+    
+      <!-- Enlace al documento css. no aplicable en codepen.
+      <link rel="stylesheet" type="text/css" href="contact-form.css">
+    -->
+      
+      </head>
+    
+    
+    <body>  
+     
+      
+      <!-- formulario de contacto en html y css -->  
+    
+      <div class="contact_form">
+    
+        <div class="formulario">      
+          <h1>IMAGEN DE LA RED</h1>
+            <h3>IMAGEN DE LOS DISPOSITIVOS CONOCIDOS</h3>
+    
+    
+              <form action="/mapeo/" method="POST">       
+                {% csrf_token %} 
+                
+                    <img src="{% static 'unnamed.png'%}" alt="">
+                
+              </form>
+        </div>  
+      </div>
+    
+    </body>
+    </html>
+{%endblock %}
