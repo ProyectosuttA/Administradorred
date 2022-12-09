@@ -1,0 +1,64 @@
+{%extends 'index.html'%}
+{% load static %}
+
+
+{%block content %}
+<html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>MAPEO DE LA RED</title>
+      <link rel="stylesheet" href="{% static 'estilos1.css'%} ">
+    
+      <!-- Enlace al documento css. no aplicable en codepen.
+      <link rel="stylesheet" type="text/css" href="contact-form.css">
+    -->
+      
+      </head>
+    
+    
+    <body>  
+     
+      
+      <!-- formulario de contacto en html y css -->  
+      {%if user.is_authenticated%}
+      {%else%}
+      <div class="contact_form" style="width:40% ; margin: 200px 0 0 25% ;">
+    
+        <div class="formulario">      
+          <h1>INGRESAR</h1>
+            <h3>Proporciona los datos para ingresal.</h3>
+    
+    
+              <form action="" method="POST">       
+                {% csrf_token %} 
+                
+                    <p>
+                      <label for="usuario" class="colocar_nombre">USUARIO
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="username" id="username" required="obligatorio" placeholder="Usuario">
+                    </p>
+                  
+                    <p>
+                      <label for="password1" >CONTRASEÑA
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="password" name="password" id="password" required="obligatorio" placeholder="Escribe la contraseña">
+                    </p>      
+                      
+                      <p>
+                        <label for="">{{valor}}</label>
+                      </p>
+                  
+                    <button style="width:40% ;" type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
+    
+                  
+              </form>
+        </div>  
+      </div>
+      {%endif%}
+
+    
+    </body>
+    </html>
+{%endblock %}

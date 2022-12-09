@@ -19,7 +19,7 @@ from acciones import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.inicio, name='icicio'),
+    path('', views.registro, name='inicio'),
     path('conexion/', views.conexion, name='conexion'),
     path('mapeo/', views.mapeo, name='mapeo'),
     path('red/', views.red, name='red'),
@@ -27,5 +27,10 @@ urlpatterns = [
     path('imagen/', views.imagen, name='red'),
     path('acciones/', views.acciones, name='acciones'),
     path('mostrarc/', views.mostrarc, name='mostrarc'),
+    path('mostrarr/', views.mostrarr, name='mostrarr'),
+    path('interface/', views.interface, name='interface'),
+    path('registro/', views.registro, name='registro'),
+    path('ingresar/', views.ingresar, name='ingresar'),
+    path('salir/', views.salir, name='salir'),
     
 ]
