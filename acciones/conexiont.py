@@ -1,94 +1,202 @@
 import telnetlib
+from .models import Datos
+def conexiont():
+    conection_active = Datos.objects.get(pactivo=True)
+    HOST = conection_active.host
+    user = conection_active.user
+    password = conection_active.password
 
-HOST = input ("Teclea el valor de la direccion del dispositivo: ")
-user = input("Enter your remote account: ")
-
-tn = telnetlib.Telnet(HOST)
-
-tn.read_until(b"Username: ")
-tn.write(user.encode('ascii') + b"\n")
-if password:
-    tn.read_until(b"Password: ")
-    tn.write(password.encode('ascii') + b"\n")
-if eleccion =="1":
-    tn.write(b"config terminal\n")
-    nombre=input("Teclea el valor del nombre: ")
-    tn.write(b"host " + nombre.encode('utf-8') + b" \n")
-    tn.write(b"end\n")
-    tn.write(b"exit\n")
-elif eleccion == "2":
-    print(tn)
-    tn.write(b"show ip interface brief \n")
-    tn.write(b"\n")
-    tn.write(b"\n")
-    tn.write(b"exit \n") 
-    print(tn.read_all().decode('ascii'))
     tn = telnetlib.Telnet(HOST)
+
     tn.read_until(b"Username: ")
     tn.write(user.encode('ascii') + b"\n")
     if password:
         tn.read_until(b"Password: ")
         tn.write(password.encode('ascii') + b"\n")
-    interfaz=input("Escribe la interfaz a utilizar: ")
-    direccion=input("Escribe la direccion ip a implementar junto con su mascara de red separados por un espacio: ")
-    tn.write(b"configure terminal\n ")
-    tn.write(b"interfa "+ interfaz.encode('utf-8') + b"\n ")
-    tn.write(b"ip address "+ direccion.encode('utf-8') + b"\n ")
-    tn.write(b"no shutdown \n") 
-    tn.write(b"end\n")  
-    tn.write(b"exit \n") 
-    print(tn.read_all().decode('ascii'))
-elif eleccion == "3":
+
+
     print(tn)
     tn.write(b"show running-config view full \n")
     tn.write(b"\n")
     tn.write(b"\n")
     tn.write(b"exit \n") 
-    print(tn.read_all().decode('ascii'))
-elif eleccion == "4":
+    valor=tn.read_all().decode('ascii')
+    print(valor)
+    return valor
+
+def rutat():
+    conection_active = Datos.objects.get(pactivo=True)
+    HOST = conection_active.host
+    user = conection_active.user
+    password = conection_active.password
+
+    tn = telnetlib.Telnet(HOST)
+
+    tn.read_until(b"Username: ")
+    tn.write(user.encode('ascii') + b"\n")
+    if password:
+        tn.read_until(b"Password: ")
+        tn.write(password.encode('ascii') + b"\n")
+
+
     print(tn)
-    tn.write(b"show vlan \n")
+    tn.write(b"show ip route \n")
     tn.write(b"\n")
     tn.write(b"\n")
     tn.write(b"exit \n") 
-    print(tn.read_all().decode('ascii'))
+    valor=tn.read_all().decode('ascii')
+    print(valor)
+    return valor
+
+def intert():
+    conection_active = Datos.objects.get(pactivo=True)
+    HOST = conection_active.host
+    user = conection_active.user
+    password = conection_active.password
+
+    tn = telnetlib.Telnet(HOST)
+
+    tn.read_until(b"Username: ")
+    tn.write(user.encode('ascii') + b"\n")
+    if password:
+        tn.read_until(b"Password: ")
+        tn.write(password.encode('ascii') + b"\n")
+
+
+    print(tn)
+    tn.write(b"show ip interface brief  \n")
+    tn.write(b"\n")
+    tn.write(b"\n")
+    tn.write(b"exit \n") 
+    valor=tn.read_all().decode('ascii')
+    print(valor)
+    return valor
+
+def pingt(ip):
+    conection_active = Datos.objects.get(pactivo=True)
+    HOST = conection_active.host
+    user = conection_active.user
+    password = conection_active.password
+
+    tn = telnetlib.Telnet(HOST)
+
+    tn.read_until(b"Username: ")
+    tn.write(user.encode('ascii') + b"\n")
+    if password:
+        tn.read_until(b"Password: ")
+        tn.write(password.encode('ascii') + b"\n")
+    #tn.write(b"ping "+ ip.encode('utf-8') + b"\n ")
+    tn.write(b"exit \n") 
+    valor=tn.read_all().decode('ascii')
+    valor='FUNCIÓN INHABILITADA PARA ESTE TIPO DE CONEXIÓN'
+    tn.close()
+    return valor
+
+def nombret(nombre):
+    conection_active = Datos.objects.get(pactivo=True)
+    HOST = conection_active.host
+    user = conection_active.user
+    password = conection_active.password
     tn = telnetlib.Telnet(HOST)
     tn.read_until(b"Username: ")
     tn.write(user.encode('ascii') + b"\n")
     if password:
         tn.read_until(b"Password: ")
         tn.write(password.encode('ascii') + b"\n")
-    numero=input("Escribe el numero de la Vlan: ")
-    nombre=input("Escribe el  nombre de la vlan: ")
-    direccion=input("Escribe la direccion ip a implementar junto con su mascara de red separados por un espacio: ")
-    tn.write(b"configure terminal\n ")
-    tn.write(b"vlan "+ numero.encode('utf-8') + b"\n ")
-    tn.write(b"name "+ nombre.encode('utf-8') + b"\n ")
-    tn.write(b"interface vlan "+ numero.encode('utf-8') + b"\n ")
-    tn.write(b"ip address "+ direccion.encode('utf-8') + b"\n ")
-    tn.write(b"no shutdown \n") 
-    tn.write(b"end\n")  
-    tn.write(b"exit \n") 
-    tn.write(b"show vlan \n")
-    tn.write(b"\n")
-    tn.write(b"\n")
-    tn.write(b"exit \n") 
-    print(tn.read_all().decode('ascii'))
+    tn.write(b"config terminal\n")
+    tn.write(b"host " + nombre.encode('utf-8') + b" \n")
+    tn.write(b"end\n")
+    tn.write(b"exit\n")
+    valor=tn.read_all().decode('ascii')
+    tn.close()
+    return valor
+
+def cambiot(ip,red, inter ):
+    conection_active = Datos.objects.get(pactivo=True)
+    HOST = conection_active.host
+    user = conection_active.user
+    password = conection_active.password
     tn = telnetlib.Telnet(HOST)
     tn.read_until(b"Username: ")
     tn.write(user.encode('ascii') + b"\n")
     if password:
         tn.read_until(b"Password: ")
         tn.write(password.encode('ascii') + b"\n")
-    modo=input("Escribe la interfaz a utilizar la Vlan : ")
-    interfaz=input("Teclea el modo a utilizar en la interfaz: ")
-    tn.write(b"configure terminal \n ")
-    tn.write(b"interfa "+ interfaz.encode('utf-8') + b"\n ")
-    tn.write(b"switchport mode "+ modo.encode('utf-8') + b"\n ")
-    
+    tn.write(b"config terminal\n")
+    tn.write(b"interface " + inter.encode('utf-8') + b" \n")
+    tn.write(b"ip address " + ip.encode('utf-8')+b' '+ red.encode('utf-8')+ b" \n")
+    tn.write(b"no shutdown \n")
+    tn.write(b"end\n")
+    tn.write(b"exit\n")
+    valor=tn.read_all().decode('ascii')
+    tn.close()
+    return valor
 
-    print(tn.read_all().decode('ascii'))
+def guardart():
+    conection_active = Datos.objects.get(pactivo=True)
+    HOST = conection_active.host
+    user = conection_active.user
+    password = conection_active.password
+
+    tn = telnetlib.Telnet(HOST)
+
+    tn.read_until(b"Username: ")
+    tn.write(user.encode('ascii') + b"\n")
+    if password:
+        tn.read_until(b"Password: ")
+        tn.write(password.encode('ascii') + b"\n")
 
 
+    print(tn)
+    tn.write(b"write \n")
+    tn.write(b"exit \n") 
+    valor=tn.read_all().decode('ascii')
+    print(valor)
+    return valor
 
-print(tn.read_all().decode('ascii'))
+def vlant(numero, nombre, ip, red ):
+    conection_active = Datos.objects.get(pactivo=True)
+    HOST = conection_active.host
+    user = conection_active.user
+    password = conection_active.password
+    tn = telnetlib.Telnet(HOST)
+    tn.read_until(b"Username: ")
+    tn.write(user.encode('ascii') + b"\n")
+    if password:
+        tn.read_until(b"Password: ")
+        tn.write(password.encode('ascii') + b"\n")
+    tn.write(b"config terminal\n")
+    tn.write(b"vlan " + numero.encode('utf-8') + b" \n")    
+    tn.write(b"name  " + nombre.encode('utf-8') + b" \n")
+    tn.write(b"interface vlan" + numero.encode('utf-8') + b" \n")
+    tn.write(b"ip address " + ip.encode('utf-8') + b' '+ red.encode('utf-8')+b" \n")
+    tn.write(b"no shutdown \n")
+    tn.write(b"end \n")
+    tn.write(b"exit\n")
+    valor=tn.read_all().decode('ascii')
+    tn.close()
+    return valor
+
+def avlant(inter, numero):
+    conection_active = Datos.objects.get(pactivo=True)
+    HOST = conection_active.host
+    user = conection_active.user
+    password = conection_active.password
+    tn = telnetlib.Telnet(HOST)
+    tn.read_until(b"Username: ")
+    tn.write(user.encode('ascii') + b"\n")
+    if password:
+        tn.read_until(b"Password: ")
+        tn.write(password.encode('ascii') + b"\n")
+    tn.write(b"config terminal\n")
+    tn.write(b"interface " + inter.encode('utf-8') + b" \n")    
+    tn.write(b"switchport mode access \n")
+    tn.write(b"switchport vlan " + numero.encode('utf-8') + b" \n")
+    tn.write(b"no shutdown \n")
+    tn.write(b"end \n")
+    tn.write(b"exit\n")
+    valor=tn.read_all().decode('ascii')
+    tn.close()
+    return valor
+
+

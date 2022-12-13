@@ -24,34 +24,27 @@
       <div class="contact_form">
     
         <div class="formulario">      
-          <h1>MAPEO DE LA RED</h1>
-            <h3>Proporciona los datos los dispositivos de la red  .</h3>
+          <h1>PING</h1>
+            <h3>Conexión desde el dispositivo</h3>
     
     
-              <form action="/mapeo/" method="POST">       
+              <form action="/ping/" method="POST">       
                 {% csrf_token %} 
                 
                     <p>
                       <label for="nombre" class="colocar_nombre">TECLEA EL VALOR DE LA IP
                         <span class="obligatorio">*</span>
                       </label>
-                        <input type="text" name="ip" id="ip" required="obligatorio" placeholder="Escribe el valor de la ip">
+                        <input type="text" name="ip" id="ip" required="obligatorio" placeholder="Escribe el valopr de la ip">
                     </p>
-                  
-                    <p>
-                      <label for="email" class="colocar_email">NUMERO DE BITS DE LA SUBRED
-                        <span class="obligatorio">*</span>
-                      </label>
-                        <input type="texto" name="subred" id="subred" required="obligatorio" placeholder="Escribe la subred">
-                    </p> 
-                  {% if valor != ' '%}
+                     {%if valor != ' ' %}                  
                     <p>
                       <label for="mensaje" class="colocar_mensaje">RESPUESTA
                         <span class="obligatorio">*</span>
                       </label>                     
                                         <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" s placeholder="Deja aquí tu comentario...">{{valor}}</textarea> 
-                                    </p>  
-                      {%endif%}                  
+                                    </p> 
+                      {%endif%}                            
                   
                     <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
     

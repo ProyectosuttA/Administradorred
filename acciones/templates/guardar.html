@@ -24,33 +24,39 @@
       <div class="contact_form">
     
         <div class="formulario">      
-          <h1>RUTA DE PAQUETES</h1>
-            <h3>Traza la ruta al destino.</h3>
+          <h1>GUARDAR</h1>
+            <h3>Guarda la configuración.</h3>
     
     
-              <form action="/ruta/" method="POST">       
+              <form action="/cambio/" method="POST">       
                 {% csrf_token %} 
                 
-                    <p>
-                      <label for="nombre" class="colocar_nombre">TECLEA EL VALOR DE LA IP
-                        <span class="obligatorio">*</span>
-                      </label>
-                        <input type="text" name="ip" id="ip" required="obligatorio" placeholder="Escribe el valor de la ip">
-                    </p>
-                     {%if valor != ' ' %}                  
+                    
                     <p>
                       <label for="mensaje" class="colocar_mensaje">RESPUESTA
                         <span class="obligatorio">*</span>
                       </label>                     
                                         <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" s placeholder="Deja aquí tu comentario...">{{valor}}</textarea> 
-                                    </p> 
-                      {%endif%}                            
+                                    </p>  
+                                    
                   
-                    <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
-    
-                    <p class="aviso">
-                      <span class="obligatorio"> * </span>los campos son obligatorios.
-                    </p>          
+                      <a href="/acciones/"  style=" height: 45px; 
+                      padding-left: 5px;
+                      padding-right: 5px;   
+                      margin-bottom: 20px; 
+                      margin-top: 10px;   
+                      text-transform: uppercase;
+                      background-color: #ab4493; 
+                      border-color: #ab4493; 
+                      border-style: solid; 
+                      border-radius: 10px;  
+                      color:#FFF;
+                      width: 420px;
+                      text-decoration:none; 
+                      cursor: pointer;
+                      ">Regresar</a> </p>
+      
+                       
                 
               </form>
         </div>  

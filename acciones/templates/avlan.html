@@ -6,7 +6,7 @@
 <html lang="es">
     <head>
       <meta charset="UTF-8">
-      <title>Formulario de contacto</title>
+      <title>VLANS</title>
       <link rel="stylesheet" href="{% static 'estilos1.css'%} ">
     
       <!-- Enlace al documento css. no aplicable en codepen.
@@ -24,38 +24,26 @@
       <div class="contact_form">
     
         <div class="formulario" >      
-          <h1>CONEXIÓN</h1>
-            <h3>Proporciona los datos del dispositivo.</h3>
+          <h1>ASIGNACIÓN DE VLAN</h1>
+            <h3>Asigna la vlan a una interfaz.</h3>   
     
-    
-              <form  action="/conexion/" method="POST">       
+              <form  action="/avlan/" method="POST">       
                 {% csrf_token %} 
-                
                     <p>
-                      <label for="nombre" class="colocar_nombre">TIPO DE CONEXIÓN
-                        <span class="obligatorio">*</span>
-                      </label>
-                        <input type="text" name="tipo" id="nombre" required="obligatorio" placeholder="Escribe el tipo de conexión">
-                    </p>
-                  
-                    <p>
-                      <label for="email" class="colocar_email">DIRECCIÓN IP
-                        <span class="obligatorio">*</span>
-                      </label>
-                        <input type="texto" name="ip" id="ip" required="obligatorio" placeholder="Escribe la IP del dispositivo">
+                    <label for="" class="colocar_email">INTERFAZ
+                      <span class="obligatorio">*</span>
+                    </label>
+                      <input type="texto" name="inter" id="inter" required="obligatorio" placeholder="Escribe el nombre de la vlan">
                     </p>
                 
                     <p>
-                      <label for="telefone" class="colocar_telefono">USUARIO
+                      <label for="nombre" class="colocar_nombre">NÚMERO DE LA VLAN
+                        <span class="obligatorio">*</span>
                       </label>
-                        <input type="texto" name="usuario" id="usuario" placeholder="Escribe el usuario">
-                    </p>    
+                        <input type="text" name="vlan" id="vlan" required="obligatorio" placeholder="El número de la vlan">
+                    </p>
                   
-                    <p>
-                      <label for="website" class="colocar_website">CONTRASEÑA DE LA CONEXIÓN
-                      </label>
-                        <input type="password" name="password" id="password" placeholder="Escribe la contraseña">
-                    </p>  
+                     
                     {% if valor != ' '%}              
                     <p>
                       <label for="mensaje" class="colocar_mensaje">Mensaje
