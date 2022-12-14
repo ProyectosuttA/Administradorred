@@ -151,7 +151,7 @@ def vlans(numero, nombre, ip, red):
             'configure terminal',
             'vlan '+numero,
             'name '+nombre,
-            'interface valn '+numero,
+            'interface vlan '+numero,
             'ip address  '+ip+ ' '+red,
             'no shutdown ',
             'end']      

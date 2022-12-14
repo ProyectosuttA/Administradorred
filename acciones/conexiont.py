@@ -18,8 +18,7 @@ def conexiont():
     print(tn)
     tn.write(b"show running-config view full \n")
     tn.write(b"\n")
-    tn.write(b"\n")
-    tn.write(b"exit \n") 
+    tn.write(b"exit \n")
     valor=tn.read_all().decode('ascii')
     print(valor)
     return valor
@@ -191,7 +190,7 @@ def avlant(inter, numero):
     tn.write(b"config terminal\n")
     tn.write(b"interface " + inter.encode('utf-8') + b" \n")    
     tn.write(b"switchport mode access \n")
-    tn.write(b"switchport vlan " + numero.encode('utf-8') + b" \n")
+    tn.write(b"switchport access vlan " + numero.encode('utf-8') + b" \n")
     tn.write(b"no shutdown \n")
     tn.write(b"end \n")
     tn.write(b"exit\n")
