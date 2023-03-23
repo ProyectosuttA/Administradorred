@@ -1,0 +1,76 @@
+{%extends 'index.html'%}
+{% load static %}
+
+
+{%block content %}
+<html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>Formulario de contacto</title>
+      <link rel="stylesheet" href="{% static 'estilos1.css'%} ">
+    
+      <!-- Enlace al documento css. no aplicable en codepen.
+      <link rel="stylesheet" type="text/css" href="contact-form.css">
+    -->
+      
+      </head>
+    
+    
+    <body>  
+     
+      
+      <!-- formulario de contacto en html y css -->  
+    
+      <div class="contact_form">
+    
+        <div class="formulario" >      
+          <h1>CONEXIÓN</h1>
+            <h3>Proporciona los datos del dispositivo.</h3>
+    
+    
+              <form  action="/conexion/" method="POST">       
+                {% csrf_token %} 
+                
+                    <p>
+                      <label for="nombre" class="colocar_nombre">TIPO DE CONEXIÓN
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="tipo" id="nombre" required="obligatorio" placeholder="Escribe el tipo de conexión">
+                    </p>
+                  
+                    <p>
+                      <label for="email" class="colocar_email">DIRECCIÓN IP
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="texto" name="ip" id="ip" required="obligatorio" placeholder="Escribe la IP del dispositivo">
+                    </p>
+                
+                    <p>
+                      <label for="telefone" class="colocar_telefono">USUARIO
+                      </label>
+                        <input type="texto" name="usuario" id="usuario" placeholder="Escribe el usuario">
+                    </p>    
+                  
+                    <p>
+                      <label for="website" class="colocar_website">CONTRASEÑA DE LA CONEXIÓN
+                      </label>
+                        <input type="password" name="password" id="password" placeholder="Escribe la contraseña">
+                    </p>  
+                    {% if valor != ' '%}              
+                    <p>
+                      <label for="mensaje" class="colocar_mensaje">Mensaje
+                        <span class="obligatorio">*</span>
+                      </label>                     
+                                        <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje"  placeholder="Deja aquí tu comentario...">{{valor}}</textarea> 
+                                    </p>    
+                      {%endif%}                
+                  
+                    <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
+              </form>
+        </div>  
+      </div>
+    
+    </body>
+    </html>
+{%endblock %}
+

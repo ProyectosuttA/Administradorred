@@ -1,0 +1,65 @@
+{%extends 'index.html'%}
+{% load static %}
+
+
+{%block content %}
+<html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>MAPEO DE LA RED</title>
+      <link rel="stylesheet" href="{% static 'estilos1.css'%} ">
+    
+      <!-- Enlace al documento css. no aplicable en codepen.
+      <link rel="stylesheet" type="text/css" href="contact-form.css">
+    -->
+      
+      </head>
+      <style>
+        .grid-container {
+          width: 70%; 
+          height: 100%;
+          margin: 100px auto ;
+          border-radius: 10px;  
+          padding-top: 20%;
+          padding-bottom: 20px;  
+          background-color: #eeeeee; 
+          padding-left: 30px; 
+          display: grid;
+          grid-template-columns: auto auto auto;
+          padding: 10px;
+        }
+        .grid-item {
+          width: 90%; 
+          height: 90%;
+          padding: 20px;
+          font-size: 30px;
+          text-align: center;
+        }
+        </style>
+    
+    
+    <body>  
+     
+      
+      <!-- formulario de contacto en html y css -->  
+
+      <div class="grid-container" > 
+          <div>
+            <h1 style="text-align: center;">ACCIONES</h1>
+            <h3 style="color:#010f0fcc ;text-align: center;  opacity: 0.7;">Selecciona la acción a realizar.</h3>
+          </div> <br><div></div> 
+          <div class="grid-item"><a class='fcc-btn' href="/mostrarc/" style="background-color: #008080 ;" >MOSTRAR CONFIGURACIÓN</a></div>
+          <div class="grid-item"><a class='fcc-btn' href="/cambio/" style="background-color: rgb(9, 134, 51);">ASIGNAR UNA IP</a></div>              
+          <div class="grid-item"><a class='fcc-btn' href="/nombre/" style="background-color: rgb(11, 127, 180);">CAMBIO DE NOMBRE</a></div> 
+          <div class="grid-item"><a class='fcc-btn' href="/mostrarr/" style="background-color: #008080;">MOSTRAR RUTAS </a></div>
+          <div class="grid-item"><a class='fcc-btn' href="/vlan/" style="background-color: rgb(9, 134, 51);">CREAR UNA VLAN</a></div>                                                     
+          <div class="grid-item"><a class='fcc-btn' href="/ping/" style="background-color: rgb(11, 127, 180);">PING</a></div>         
+          <div class="grid-item"><a class='fcc-btn' href="/interface/" style="background-color: #008080;">MOSTRAR INTERFACES</a></div>
+          <div class="grid-item"><a class='fcc-btn' href="/avlan/" style="background-color: rgb(9, 134, 51);">ASIGNAR UNA VLAN</a></div>  
+          <div class="grid-item"><a class='fcc-btn' href="/guardar/" style="background-color: rgb(11, 127, 180);">GUARDAR LOS CAMBIOS</a></div>     
+      </div>
+      
+    
+    </body> 
+    </html>
+{%endblock %}

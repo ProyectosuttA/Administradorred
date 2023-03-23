@@ -1,0 +1,76 @@
+{%extends 'index.html'%}
+{% load static %}
+
+
+{%block content %}
+<html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>VLANS</title>
+      <link rel="stylesheet" href="{% static 'estilos1.css'%} ">
+    
+      <!-- Enlace al documento css. no aplicable en codepen.
+      <link rel="stylesheet" type="text/css" href="contact-form.css">
+    -->
+      
+      </head>
+    
+    
+    <body>  
+     
+      
+      <!-- formulario de contacto en html y css -->  
+    
+      <div class="contact_form">
+    
+        <div class="formulario" >      
+          <h1>VLANS</h1>
+            <h3>Crea una vlan</h3>   
+    
+              <form  action="/vlan/" method="POST">       
+                {% csrf_token %} 
+                
+                    <p>
+                      <label for="nombre" class="colocar_nombre">NÚMERO DE LA VLAN
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="vlan" id="vlan" required="obligatorio" placeholder="El número de la vlan">
+                    </p>
+                  
+                    <p>
+                      <label for="" class="colocar_email">NOMBRE DE LA VLAN
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="texto" name="nombre" id="nombre" required="obligatorio" placeholder="Escribe el nombre de la vlan">
+                    </p>
+
+                    <p>
+                        <label for="" class="colocar_email"> IP DE LA VLAN
+                          <span class="obligatorio">*</span>
+                        </label>
+                          <input type="texto" name="ip" id="ip" required="obligatorio" placeholder="Escribe ip de la vlan">
+                      </p>
+                  
+                    <p>
+                      <label for="website" class="colocar_website">MASCARA DE RED
+                      </label>
+                        <input type="texto" name="red" id="red" placeholder="Escribe la sub red de la vlan ">
+                    </p>  
+                    {% if valor != ' '%}              
+                    <p>
+                      <label for="mensaje" class="colocar_mensaje">Mensaje
+                        <span class="obligatorio">*</span>
+                      </label>                     
+                                        <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje"  placeholder="Deja aquí tu comentario...">{{valor}}</textarea> 
+                                    </p>    
+                      {%endif%}                
+                  
+                    <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
+              </form>
+        </div>  
+      </div>
+    
+    </body>
+    </html>
+{%endblock %}
+

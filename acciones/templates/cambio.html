@@ -1,0 +1,74 @@
+{%extends 'index.html'%}
+{% load static %}
+
+
+{%block content %}
+<html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>MAPEO DE LA RED</title>
+      <link rel="stylesheet" href="{% static 'estilos1.css'%} ">
+    
+      <!-- Enlace al documento css. no aplicable en codepen.
+      <link rel="stylesheet" type="text/css" href="contact-form.css">
+    -->
+      
+      </head>
+    
+    
+    <body>  
+     
+      
+      <!-- formulario de contacto en html y css -->  
+    
+      <div class="contact_form">
+    
+        <div class="formulario">      
+          <h1>CAMBIO DE IP</h1>
+            <h3>Proporciona los datos del dispositivo.</h3>
+    
+    
+              <form action="/cambio/" method="POST">       
+                {% csrf_token %} 
+                
+                    <p>
+                      <label for="nombre" class="colocar_nombre">TECLEA EL VALOR DE LA IP
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="ip" id="ip" required="obligatorio" placeholder="Escribe el valopr de la ip">
+                    </p>
+                  
+                    <p>
+                      <label for="subred" class="colocar_email">NUMERO DE BITS DE LA SUBRED
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="texto" name="subred" id="subred" required="obligatorio" placeholder="Escribe la subred">
+                    </p> 
+                    <p>
+                      <label for="inter" class="colocar_email">INTERFACE
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="texto" name="interf" id="interf" required="obligatorio" placeholder="Escribe la interface">
+                    </p> 
+                  {% if valor != ' '%}
+                    <p>
+                      <label for="mensaje" class="colocar_mensaje">RESPUESTA
+                        <span class="obligatorio">*</span>
+                      </label>                     
+                                        <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" s placeholder="Deja aquí tu comentario...">{{valor}}</textarea> 
+                                    </p>  
+                      {%endif%}                  
+                  
+                    <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
+    
+                    <p class="aviso">
+                      <span class="obligatorio"> * </span>los campos son obligatorios.
+                    </p>          
+                
+              </form>
+        </div>  
+      </div>
+    
+    </body>
+    </html>
+{%endblock %}

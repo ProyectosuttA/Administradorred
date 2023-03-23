@@ -1,0 +1,64 @@
+{%extends 'index.html'%}
+{% load static %}
+
+
+{%block content %}
+<html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>ESTADO DE LA RED </title>
+      <link rel="stylesheet" href="{% static 'estilos1.css'%} ">
+    
+      <!-- Enlace al documento css. no aplicable en codepen.
+      <link rel="stylesheet" type="text/css" href="contact-form.css">
+    -->
+      
+      </head>
+    
+    
+    <body>  
+     
+      
+      <!-- formulario de contacto en html y css -->  
+    
+      <div class="contact_form">
+    
+        <div class="formulario">      
+          <h1>ESTADO DE LA RED</h1>
+            <h3>Proporciona los datos dela red.</h3>
+    
+    
+              <form action="/mapeo/" method="POST">       
+                {% csrf_token %} 
+                
+                   
+                    <p>
+                      <label for="mensaje" class="colocar_mensaje">Mensaje
+                        <span class="obligatorio">*</span>
+                      </label>                     
+                                        <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario...">{{valor}}</textarea> 
+                                    </p>                    
+                  
+                                    <a href="/ "  style=" height: 45px; 
+                                    padding-left: 5px;
+                                    padding-right: 5px;   
+                                    margin-bottom: 20px; 
+                                    margin-top: 10px;   
+                                    text-transform: uppercase;
+                                    background-color: #ab4493; 
+                                    border-color: #ab4493; 
+                                    border-style: solid; 
+                                    border-radius: 10px;  
+                                    color:#FFF;
+                                    width: 420px;
+                                    text-decoration:none; 
+                                    cursor: pointer;
+                                    ">Regresar</a> </p>        
+                
+              </form>
+        </div>  
+      </div>
+    
+    </body>
+    </html>
+{%endblock %}

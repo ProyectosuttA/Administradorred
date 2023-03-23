@@ -1,0 +1,61 @@
+{%extends 'index.html'%}
+{% load static %}
+
+
+{%block content %}
+<html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>MAPEO DE LA RED</title>
+      <link rel="stylesheet" href="{% static 'estilos1.css'%} ">
+    
+      <!-- Enlace al documento css. no aplicable en codepen.
+      <link rel="stylesheet" type="text/css" href="contact-form.css">
+    -->
+      
+      </head>
+    
+    
+    <body>  
+     
+      
+      <!-- formulario de contacto en html y css -->  
+    
+      <div class="contact_form">
+    
+        <div class="formulario">      
+          <h1>RUTA DE PAQUETES</h1>
+            <h3>Traza la ruta al destino.</h3>
+    
+    
+              <form action="/ruta/" method="POST">       
+                {% csrf_token %} 
+                
+                    <p>
+                      <label for="nombre" class="colocar_nombre">TECLEA EL VALOR DE LA IP
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="ip" id="ip" required="obligatorio" placeholder="Escribe el valor de la ip">
+                    </p>
+                     {%if valor != ' ' %}                  
+                    <p>
+                      <label for="mensaje" class="colocar_mensaje">RESPUESTA
+                        <span class="obligatorio">*</span>
+                      </label>                     
+                                        <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" s placeholder="Deja aquí tu comentario...">{{valor}}</textarea> 
+                                    </p> 
+                      {%endif%}                            
+                  
+                    <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
+    
+                    <p class="aviso">
+                      <span class="obligatorio"> * </span>los campos son obligatorios.
+                    </p>          
+                
+              </form>
+        </div>  
+      </div>
+    
+    </body>
+    </html>
+{%endblock %}
