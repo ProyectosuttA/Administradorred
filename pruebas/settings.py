@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 import warnings
+from decouple  import config
 
 warnings.filterwarnings("ignore", message="No directory at", module="whitenoise.base" )
 
@@ -86,10 +87,9 @@ WSGI_APPLICATION = 'pruebas.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:@127.0.0.1:5432/postgres',
+        default=config('DATABASE_URL', 'postgres://user:password@localhost:5432/dbname')
     )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
