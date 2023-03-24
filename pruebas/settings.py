@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'pruebas.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost/postgres',
+        default='postgresql://postgres:@localhost/postgres',
     )
 }
 
