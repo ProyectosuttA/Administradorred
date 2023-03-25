@@ -16,6 +16,7 @@ import dj_database_url
 import warnings
 from decouple import config
 
+
 warnings.filterwarnings("ignore", message="No directory at", module="whitenoise.base" )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -87,7 +88,7 @@ WSGI_APPLICATION = 'pruebas.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL', 'postgresql://postgres:postgres@localhost:5432/postgres')
+        default='postgresql://postgres:postgres@localhost:5432/postgres'
     )
 }
 
