@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 import warnings
-#from decouple import config
+from decouple import config
 
 warnings.filterwarnings("ignore", message="No directory at", module="whitenoise.base" )
 
