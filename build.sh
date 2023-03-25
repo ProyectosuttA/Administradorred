@@ -6,6 +6,8 @@ set -o errexit
 apt install postgresql
 systemctl enable postgresql
 systemctl start postgresql
+netstat -ltpn
+ls
 
 python manage.py collectstatic --no-input
 python manage.py migrate
